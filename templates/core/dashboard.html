@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="grid two-col">
+    <article class="card">
+        <h1>Dashboard</h1>
+        {% if user.is_school_user %}
+        <p>Total Students</p>
+        <p class="metric">{{ student_count }}</p>
+        {% else %}
+        <p>Use Django admin to manage schools and users.</p>
+        {% endif %}
+    </article>
+    <article class="card">
+        <h2>Recent Students</h2>
+        {% if recent_students %}
+            <ul class="plain-list">
+            {% for student in recent_students %}
+                <li>{{ student.first_name }} {{ student.last_name }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No students yet.</p>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

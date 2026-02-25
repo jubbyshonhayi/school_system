@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Student Form{% endblock %}
+{% block content %}
+<section class="card">
+    <h1>{% if object %}Edit{% else %}Add{% endif %} Student</h1>
+    <form method="post" class="styled-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="row gap">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'students:list' %}" class="btn">Cancel</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
