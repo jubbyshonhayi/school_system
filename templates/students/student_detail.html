@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Student Detail{% endblock %}
+{% block content %}
+<section class="card">
+    <div class="row between">
+        <h1>{{ student.first_name }} {{ student.last_name }}</h1>
+        <a href="{% url 'students:list' %}" class="btn">Back</a>
+    </div>
+    <div class="detail-grid">
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Phone:</strong> {{ student.phone }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+        <p><strong>Gender:</strong> {{ student.get_gender_display }}</p>
+        <p><strong>Enrollment Date:</strong> {{ student.enrollment_date }}</p>
+    </div>
+</section>
+{% endblock %}
